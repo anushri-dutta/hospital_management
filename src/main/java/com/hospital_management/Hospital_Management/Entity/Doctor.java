@@ -14,8 +14,6 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 
 
 @Setter
@@ -25,8 +23,8 @@ import jakarta.persistence.JoinTable;
 public class Doctor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "doctor_seq_gen")
-    @SequenceGenerator(name = "doctor_seq_gen", sequenceName = "doctor_seq", initialValue = 1, allocationSize = 5)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "patient_seq_gen")
+    @SequenceGenerator(name = "patient_seq_gen", sequenceName = "patient_seq", initialValue = 1, allocationSize = 5)
     private Long id;
 
     @Column(name = "name", nullable = false)

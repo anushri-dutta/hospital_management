@@ -26,8 +26,8 @@ import lombok.Setter;
 public class Department {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "department_seq_gen")
-    @SequenceGenerator(name = "department_seq_gen", sequenceName = "department_seq", initialValue = 1, allocationSize = 5)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "patient_seq_gen")
+    @SequenceGenerator(name = "patient_seq_gen", sequenceName = "patient_seq", initialValue = 1, allocationSize = 5)
     private Long id;
 
     @Column(name = "name", nullable = false)

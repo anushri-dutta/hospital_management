@@ -18,8 +18,8 @@ import lombok.Setter;
 public class Insurance {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "insurance_seq_gen")
-    @SequenceGenerator(name = "insurance_seq_gen", sequenceName = "insurance_seq", initialValue = 1, allocationSize = 5)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "patient_seq_gen")
+    @SequenceGenerator(name = "patient_seq_gen", sequenceName = "patient_seq", initialValue = 1, allocationSize = 5)
     private Long id;
 
     @Column(name = "policy_number", nullable = false)

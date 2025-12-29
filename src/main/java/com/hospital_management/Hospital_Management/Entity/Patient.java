@@ -12,6 +12,8 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +22,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Data
+@Builder
 @Table(name = "patients")
 public class Patient {
 
