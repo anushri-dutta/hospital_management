@@ -1,5 +1,9 @@
 package com.hospital_management.Hospital_Management.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,12 +13,15 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 @Table(name = "insurances")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Insurance {
 
     @Id
@@ -31,7 +38,8 @@ public class Insurance {
     @Column(name = "valid_till", nullable = false)
     private String validTill;
 
-    @OneToOne(mappedBy = "insuranceId")
+    @OneToOne(mappedBy = "insurance")
+    @JsonBackReference
     private Patient patient;
 
 }
