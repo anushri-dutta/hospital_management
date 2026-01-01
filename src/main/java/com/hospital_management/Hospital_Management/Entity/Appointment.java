@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.hospital_management.Hospital_Management.enums.AppointmentStaus;
 
 import jakarta.persistence.Column;
@@ -26,7 +28,8 @@ import lombok.Setter;
 @Entity
 @NoArgsConstructor
 @Table(name = "appointments")
-public class Appointment {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "patient_seq_gen")

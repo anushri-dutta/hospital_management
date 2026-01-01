@@ -2,6 +2,9 @@ package com.hospital_management.Hospital_Management.Entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,18 +18,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-
 @Setter
 @Getter
 @Entity
 @NoArgsConstructor
 @Table(name = "doctors")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Doctor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "patient_seq_gen")
-    @SequenceGenerator(name = "patient_seq_gen", sequenceName = "patient_seq", initialValue = 1, allocationSize = 5)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // @SequenceGenerator(name = "patient_seq_gen", sequenceName = "patient_seq",
+    // initialValue = 1, allocationSize = 5)
     private Long id;
 
     @Column(name = "name", nullable = false)

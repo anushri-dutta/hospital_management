@@ -11,6 +11,8 @@ import com.hospital_management.Hospital_Management.Repository.InsuranceRepo;
 import com.hospital_management.Hospital_Management.Repository.PatientRepo;
 import com.hospital_management.Hospital_Management.Service.ServiceInterface.InsuranceServiceInterface;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class InsuranceService implements InsuranceServiceInterface{
 
@@ -21,6 +23,7 @@ public class InsuranceService implements InsuranceServiceInterface{
     public PatientRepo patientRepo;
 
     @Override
+    @Transactional
     public Insurance createInsurance(Insurance insurance, Long patientId) {
 
         System.out.println("Patient ID received: " + patientId);
@@ -28,7 +31,9 @@ public class InsuranceService implements InsuranceServiceInterface{
         Patient patient = patientRepo.findById(patientId).orElseThrow(() -> new IllegalArgumentException("Invalid patient ID"));
 
         patient.setInsurance(insurance);
-        return patientRepo.save(patient).getInsurance();
+        insurance.setPatient(patient);
+        return insurance;
+     //   return patientRepo.save(patient).getInsurance();
     }
 
     @Override

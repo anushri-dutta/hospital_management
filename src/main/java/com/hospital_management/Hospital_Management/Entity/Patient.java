@@ -50,7 +50,6 @@ public class Patient {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "insurance_id", nullable = true)
-    @JsonManagedReference
     private Insurance insurance;
 
     @OneToMany(mappedBy = "patient")
