@@ -7,4 +7,6 @@ import com.hospital_management.Hospital_Management.Entity.Appointment;
 public interface AppointmentServiceInterface {
     public Appointment createAppointment(Appointment appointment, Long patientId, Long doctorId);
     public List<Appointment> getAllAppointment();
+
+    public List<Appointment> getAppointmentsByPatientId(Long patientId);
 }

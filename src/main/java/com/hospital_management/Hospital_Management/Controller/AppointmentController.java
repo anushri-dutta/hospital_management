@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -30,6 +31,11 @@ public class AppointmentController {
     @GetMapping
     public List<Appointment> getAllAppointment() {
         return appointmentServiceInterface.getAllAppointment();
+    }
+
+    @GetMapping("/patient/{patientId}")
+    public List<Appointment> getAppointmentsByPatientId(@PathVariable Long patientId) {
+        return appointmentServiceInterface.getAppointmentsByPatientId(patientId);
     }
 
 }

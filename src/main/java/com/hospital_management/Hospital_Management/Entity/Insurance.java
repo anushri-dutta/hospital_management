@@ -26,7 +26,6 @@ public class Insurance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   // @SequenceGenerator(name = "patient_seq_gen", sequenceName = "patient_seq", initialValue = 1, allocationSize = 5)
     private Long id;
 
     @Column(name = "policy_number", nullable = false)

@@ -43,4 +43,11 @@ public class AppointmentService implements AppointmentServiceInterface {
     public List<Appointment> getAllAppointment() {
         return appointmentRepo.findAll();
     }
+
+    @Override
+    public List<Appointment> getAppointmentsByPatientId(Long patientId) {
+        Patient patient = patientRepo.findById(patientId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID"));
+        return patient.getAppointments();
+    }
 }
