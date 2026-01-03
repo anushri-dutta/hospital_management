@@ -24,11 +24,15 @@ public class AppointmentService implements AppointmentServiceInterface {
 
     public final DoctorRepo doctorRepo;
 
+    
+
     @Override
     public Appointment createAppointment(Appointment appointment, Long patientId, Long doctorId) {
 
-        Patient patient = patientRepo.findById(patientId).orElseThrow(() -> new IllegalArgumentException("Invalid patient ID"));
-        Doctor doctor = doctorRepo.findById(doctorId).orElseThrow(() -> new IllegalArgumentException("Invalid doctor ID"));
+        Patient patient = patientRepo.findById(patientId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID"));
+        Doctor doctor = doctorRepo.findById(doctorId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid doctor ID"));
 
         appointment.setPatient(patient);
         appointment.setDoctor(doctor);
@@ -44,10 +48,17 @@ public class AppointmentService implements AppointmentServiceInterface {
         return appointmentRepo.findAll();
     }
 
+    
+
     @Override
     public List<Appointment> getAppointmentsByPatientId(Long patientId) {
         Patient patient = patientRepo.findById(patientId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID"));
-        return patient.getAppointments();
+
+        List<Appointment> appointments = patient.getAppointments();
+        for (Appointment appointment : appointments) {
+            appointment.getDoctor().getName();
+        }
+        return appointments;
     }
 }

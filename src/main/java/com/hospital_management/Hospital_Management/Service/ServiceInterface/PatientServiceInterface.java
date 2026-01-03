@@ -8,4 +8,7 @@ public interface PatientServiceInterface {
     public Patient registerPatient(Patient patient);
 
     public List<Patient> getAllPatients();
+
+    public List<Patient> getAllAppointmentAccordingToPatient();
+
 }

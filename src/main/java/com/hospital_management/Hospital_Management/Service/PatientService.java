@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hospital_management.Hospital_Management.Entity.Appointment;
 import com.hospital_management.Hospital_Management.Entity.Patient;
 import com.hospital_management.Hospital_Management.Repository.PatientRepo;
 import com.hospital_management.Hospital_Management.Service.ServiceInterface.PatientServiceInterface;
@@ -28,5 +29,17 @@ public class PatientService implements PatientServiceInterface {
     @Override
     public List<Patient> getAllPatients() {
         return patientRepo.findAll();
+    }
+
+    @Override
+    public List<Patient> getAllAppointmentAccordingToPatient() {
+
+         List<Patient> patients = patientRepo.findAll();
+
+         for(Patient patient : patients) {
+             List<Appointment> appointments = patient.getAppointments();
+            
+         }
+        return patients;
     }
 }

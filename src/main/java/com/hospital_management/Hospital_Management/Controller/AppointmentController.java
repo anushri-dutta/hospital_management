@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hospital_management.Hospital_Management.Entity.Appointment;
+import com.hospital_management.Hospital_Management.Entity.Patient;
 import com.hospital_management.Hospital_Management.Service.ServiceInterface.AppointmentServiceInterface;
 
 import lombok.RequiredArgsConstructor;
@@ -32,6 +33,7 @@ public class AppointmentController {
     public List<Appointment> getAllAppointment() {
         return appointmentServiceInterface.getAllAppointment();
     }
+
 
     @GetMapping("/patient/{patientId}")
     public List<Appointment> getAppointmentsByPatientId(@PathVariable Long patientId) {

@@ -31,4 +31,12 @@ public class PatientController {
         return patientServiceInterface.getAllPatients();
     }
 
+    
+    
+@GetMapping("/all")
+    public List<Patient> getAllAppointmentAccordingToPatient() {
+        return patientServiceInterface.getAllAppointmentAccordingToPatient();
+    }
+    
+
 }
