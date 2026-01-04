@@ -34,12 +34,14 @@ public class PatientService implements PatientServiceInterface {
     @Override
     public List<Patient> getAllAppointmentAccordingToPatient() {
 
-         List<Patient> patients = patientRepo.findAll();
+        return patientRepo.findAllWithAppointmentsAndDoctors();
 
-         for(Patient patient : patients) {
-             List<Appointment> appointments = patient.getAppointments();
+        //  List<Patient> patients = patientRepo.findAll();
+
+        //  for(Patient patient : patients) {
+        //      List<Appointment> appointments = patient.getAppointments();
             
-         }
-        return patients;
+        //  }
+        // return patients;
     }
 }
